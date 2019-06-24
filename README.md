@@ -24,5 +24,5 @@ yarn start
 ```
 ### Test
 
-![get notify][./rollout.gif]
+![get notify](./rollout.gif)
 
