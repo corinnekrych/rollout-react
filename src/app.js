@@ -14,8 +14,10 @@ class App extends React.Component {
     this.state = {
       featureA: undefined,
       featureB: undefined,
+      featureC: undefined,
       alert: false
     }
+
   }
   onFlagChange = () => {
     this.setState({
@@ -31,9 +33,12 @@ class App extends React.Component {
     console.log(`featureA == ${featureA}`)
     let featureB = Rox.dynamicApi.isEnabled('demo.featureB', true);
     console.log(`featureB == ${featureB}`)
+    let featureC = Rox.dynamicApi.isEnabled('demo.featureB', true);
+    console.log(`featureC == ${featureC}`)
     this.setState({
       featureA,
       featureB,
+      featureC,
       alert: false
     })
   }
@@ -42,6 +47,10 @@ class App extends React.Component {
     console.log('Call setup 1')
     await Rox.setup(process.env.REACT_APP_ROX_APP_KEY, this.options)
     this.updateDisplay()
+
+    const r = Rox.flags
+    r.forEach(e => console.log(`::::::flags: ${JSON.stringify(e)}`))
+
   }
   close = () => {
     this.setState({alert: false})
@@ -67,7 +76,10 @@ class App extends React.Component {
             <br/>
 
             <Card flag={this.state.featureB} name={"Feature B"}/>
+            <br/>
+            <br/>
 
+            <Card flag={this.state.featureC} name={"Feature C"}/>
           </div>
         </div>
     )
