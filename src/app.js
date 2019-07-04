@@ -39,6 +39,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
+    console.log('Call setup 1')
     await Rox.setup(process.env.REACT_APP_ROX_APP_KEY, this.options)
     this.updateDisplay()
   }
