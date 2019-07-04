@@ -15,7 +15,7 @@ const getOptions = (mode, unfreeze) => {
         options.configurationFetchedHandler = fetcherResults => {
             console.log(fetcherResults)
             const data = JSON.parse(fetcherResults.clientData.data)
-            console.log(`List of feature flags for available experiments ${data.experiments.forEach(r => {console.log(r.featureFlags[0].name)})}`)
+            data.experiments.forEach(r => {console.log(r.featureFlags[0].name)})
             if (fetcherResults.hasChanges) {
                 unfreeze()
             }
