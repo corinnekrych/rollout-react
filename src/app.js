@@ -33,7 +33,7 @@ class App extends React.Component {
     console.log(`featureA == ${featureA}`)
     let featureB = Rox.dynamicApi.isEnabled('demo.featureB', true);
     console.log(`featureB == ${featureB}`)
-    let featureC = Rox.dynamicApi.isEnabled('demo.featureB', true);
+    let featureC = Rox.dynamicApi.isEnabled('demo.featureC', true);
     console.log(`featureC == ${featureC}`)
     this.setState({
       featureA,
